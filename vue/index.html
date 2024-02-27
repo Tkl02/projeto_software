@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atv-1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Lista de Ameaças Digitais</h1>
+        <table v-show="showTable">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Imagem</th>
+              <th>Descrição</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in items">
+              <td>{{ item.nome }}</td>
+              <td><img width="180" height="100" v-bind:src="item.imagem" alt="{{ item.nome }}"></td>
+              <td>{{ item.descricao }}</td>
+              <td><a :href="item.link" target="_blank">  Saiba mais</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <button @click="showTable = !showTable">Mostrar/Esconder Tabela</button>
+      </div>
+
+      <script>
+        const app = new Vue({
+          el: '#app',
+          data: {
+            showTable: true,
+            items: [
+              {
+                nome: 'Ransomware',
+                imagem: 'https://media.istockphoto.com/id/1399980046/pt/foto/cyber-security-ransomware-email-phishing-encrypted-technology-digital-information-protected.jpg?s=1024x1024&w=is&k=20&c=MVfmnZ_-OU5aVoNMNhB9Fr8jZP0urNwH6huK6S8KpTk=',
+                descricao: 'Software malicioso que criptografa os dados da vítima e exige um resgate para desbloqueá-los.',
+                link: 'https://br.malwarebytes.com/ransomware/',
+              },
+              {
+                nome: 'Malware',
+                imagem: 'https://media.istockphoto.com/id/1144604134/pt/foto/malware-detected-warning-screen.jpg?s=1024x1024&w=is&k=20&c=eeyCk6DqKWiDMb95L0upCj1QPs6nFvW6eoRZlm_zMp4=',
+                descricao: 'Software malicioso que pode danificar o computador da vítima ou roubar seus dados.',
+                link: 'https://www.malwarebytes.com/malware',
+              },
+              {
+                nome: 'Spyware',
+                imagem: 'https://media.istockphoto.com/id/1221761167/pt/foto/man-typing-on-keyboard-with-virus-detected-alert-on-hologram-screen.jpg?s=1024x1024&w=is&k=20&c=TXynNc7qPUlDcimhXgFc0NesYwSx4_RRQb2hX-OVbhE=',
+                descricao: 'Software malicioso que espiona a atividade da vítima na internet e coleta seus dados pessoais.',
+                link: 'https://br.malwarebytes.com/spyware/',
+              },
+              {
+                nome: 'Backdoor',
+                imagem: 'https://media.istockphoto.com/id/484125606/pt/foto/teclado-com-vermelho-tecla-enter-hatch-passagem-subterr%C3%A2nea-escada-backdoor.jpg?s=1024x1024&w=is&k=20&c=eTwmKRdXfe5vJ26owe8esTxTDy2e0_tMIRQL2egRgIA=',
+                descricao: 'Software que exibe anúncios indesejados na tela da vítima.',
+                link: 'https://blog.bughunt.com.br/backdoor-como-identificar/',
+              },
+            ],
+          },
+        });
+        </script>
+</body>
+
+</html>
